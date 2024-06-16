@@ -1,0 +1,11 @@
+- Only constexpr constructors are allowed
+- Real runtime constructor should be put in .init() function and called explicitly. (Then return error codes can be checked)
+- If an object has no .init() function, it should be in a valid state when declared (e.g. constexpr-ctor and/or sane initializations of members)
+
+- Use CamelCase for classes and camelCase for methods and functions.
+- Errors are signalled by returning negative int's.
+
+- Function inputs/outputs:
+	- Inputs: Are passed by value or constant reference
+	- Outputs: Are returned by value, cost-ref (if read-only/value semantics) or by writing to non-const pointer argument
+	- In/outputs: Non-const pointer argument
